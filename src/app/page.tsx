@@ -112,7 +112,7 @@ export default function PortfolioPage() {
             <a href="#experience" className="hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95 transform">Experience</a>
             <a href="#contact" className="hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95 transform">Contact</a>
             <a
-              href="/cv.pdf"
+              href="/portfolio/cv.pdf"
               download="Timothy_Kimani_CV.pdf"
               className="text-primary hover:text-primary-foreground hover:bg-primary border border-primary/30 px-2.5 py-1.5 rounded-sm transition-all duration-300 font-bold hover:scale-[1.05] active:scale-[0.95] transform"
             >
@@ -136,7 +136,7 @@ export default function PortfolioPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="/cv.pdf"
+                href="/portfolio/cv.pdf"
                 download="Timothy_Kimani_CV.pdf"
                 className="inline-flex items-center justify-center font-mono text-[10px] uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-3 rounded-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95 transform hover:shadow-lg hover:shadow-primary/25"
               >
