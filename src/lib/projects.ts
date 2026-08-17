@@ -99,32 +99,135 @@ export const projects: Project[] = [
   },
 ];
 
+export interface SubProject {
+  name: string;
+  category: string;
+  technologies: string[];
+  highlights: string[];
+}
+
 export interface Experience {
   period: string;
   role: string;
   company: string;
   description: string;
+  subProjects?: SubProject[];
 }
 
 export const experience: Experience[] = [
   {
     period: "2023 — Present",
-    role: "Fullstack Developer",
-    company: "Roamtech Solution Limited.",
+    role: "Software Engineer",
+    company: "Roamtech Limited Solutions",
     description:
-      "Built .",
-  }
+      "Develop and maintain enterprise-grade web, backend, and mobile applications across multiple financial technology and communication products. Contribute across the full software development lifecycle from system architecture and API integrations to containerized deployment, SQL optimization, and high-availability production support.",
+    subProjects: [
+      {
+        name: "Afrisend",
+        category: "Cross-Border Money Transfer Platform",
+        technologies: ["Go", "PHP", "Vue.js", "React Native", "MySQL", "Redis", "Docker", "Kubernetes", "Helm"],
+        highlights: [
+          "Developed secure backend services supporting local and international cross-border money transfers.",
+          "Designed and implemented RESTful APIs consumed by web and mobile applications.",
+          "Integrated banking systems, mobile money providers, payment gateways, and foreign exchange partners using REST and SOAP services.",
+          "Built transaction validation, automated reconciliation, and retry mechanisms to improve payment reliability.",
+          "Investigated and resolved production incidents while maintaining high system availability.",
+          "Optimized SQL queries and backend workflows for high-volume transaction processing.",
+        ],
+      },
+      {
+        name: "Emalify",
+        category: "Business Communications Platform",
+        technologies: ["PHP", "Vue.js", "MySQL", "REST APIs"],
+        highlights: [
+          "Designed and implemented RESTful APIs and backend services for SMS delivery and messaging workflows.",
+          "Developed reusable backend components and frontend modules, including template management and reporting features.",
+        ],
+      },
+      {
+        name: "Adenzo",
+        category: "E-commerce Platform",
+        technologies: ["Go (Golang)", "Next.js", "MySQL", "REST APIs"],
+        highlights: [
+          "Developed scalable backend services using Go and REST APIs consumed by web applications.",
+          "Implemented secure authentication, session handling, and e-commerce business logic.",
+          "Developed responsive frontend functionality using Next.js.",
+        ],
+      },
+    ],
+  },
 ];
 
+export interface SkillCategory {
+  category: string;
+  items: string[];
+}
+
+export const skillCategories: SkillCategory[] = [
+  {
+    category: "Languages",
+    items: ["Go (Golang)", "PHP (Laravel)", "TypeScript", "JavaScript", "SQL", "HTML/CSS"],
+  },
+  {
+    category: "Backend & Systems",
+    items: ["REST APIs", "Microservices", "Express.js", "Node.js", "SOAP Services", "Payment Integrations", "API Security"],
+  },
+  {
+    category: "Frontend & Mobile",
+    items: ["React", "Next.js", "Vue.js", "Nuxt.js", "React Native", "Responsive UI"],
+  },
+  {
+    category: "Databases & DevOps",
+    items: ["MySQL", "Redis", "Docker", "Kubernetes", "Helm", "Linux", "Git & GitHub Actions"],
+  },
+];
+
+export interface Certificate {
+  id: string;
+  title: string;
+  issuer: string;
+  instructor: string;
+  issueDate: string;
+  credentialUrl: string;
+  skills: string[];
+}
+
+export const certificates: Certificate[] = [
+  {
+    id: "react-native-2025",
+    title: "React Native - The Practical Guide",
+    issuer: "Udemy",
+    instructor: "Maximilian Schwarzmüller (Academind)",
+    issueDate: "June 2025",
+    credentialUrl: "https://www.udemy.com/certificate/UC-75982a33-d8ce-4ba8-9093-50e8c53d5588/",
+    skills: ["React Native", "Cross-Platform Mobile", "iOS & Android Development"],
+  },
+  {
+    id: "mern-2025",
+    title: "MERN 2025 Edition - MongoDB, Express, React and NodeJS",
+    issuer: "Udemy",
+    instructor: "Jānis Smilga",
+    issueDate: "August 2025",
+    credentialUrl: "https://www.udemy.com/certificate/UC-2081a59f-0db1-4db3-9bc8-45d45f82792f/",
+    skills: ["MongoDB", "Express.js", "React", "Node.js", "Full-Stack Web"],
+  },
+];
+
+
 export const skills = [
+  "Go (Golang)",
+  "PHP (Laravel)",
   "TypeScript",
   "React / Next.js",
+  "Vue.js",
   "React Native",
-  "Node.js",
-  "Go",
-  "PostgreSQL",
+  "REST & SOAP APIs",
+  "Payment Integrations",
+  "MySQL",
   "Redis",
-  "GraphQL",
-  "AWS",
+  "Docker",
   "Kubernetes",
+  "Helm",
+  "Linux",
+  "Microservices",
 ];

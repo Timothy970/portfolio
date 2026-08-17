@@ -1,6 +1,6 @@
 "use client";
 
-import { projects, experience, skills, type Project } from "@/lib/projects";
+import { projects, experience, skills, skillCategories, certificates, type Project } from "@/lib/projects";
 import WaterBackground from "@/components/WaterBackground";
 
 function PlatformBadge({ platform }: { platform: Project["platform"] }) {
@@ -110,6 +110,8 @@ export default function PortfolioPage() {
           <div className="flex items-center gap-8 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             <a href="#projects" className="hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95 transform">Projects</a>
             <a href="#experience" className="hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95 transform">Experience</a>
+            <a href="#skills" className="hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95 transform">Skills</a>
+            <a href="#certifications" className="hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95 transform">Certifications</a>
             <a href="#contact" className="hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95 transform">Contact</a>
             <a
               href="/portfolio/cv.pdf"
@@ -178,22 +180,154 @@ export default function PortfolioPage() {
         <section id="experience" className="mb-32">
           <div className="mb-12 flex items-end justify-between border-b border-border pb-4">
             <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              Professional History
+              Professional Experience
             </h2>
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground hidden md:block">
+              Fintech · Enterprise Systems
+            </span>
           </div>
-          <div className="space-y-12 max-w-3xl">
+          <div className="space-y-16">
             {experience.map((e) => (
-              <div key={e.period} className="flex flex-col md:flex-row md:gap-12 animate-reveal">
-                <span className="w-32 shrink-0 font-mono text-xs text-muted-foreground mb-2 md:mb-0">
-                  {e.period}
-                </span>
-                <div>
-                  <h4 className="text-xl font-bold">{e.role}</h4>
-                  <p className="text-primary font-mono text-xs mb-4 uppercase tracking-wider">
+              <div key={e.company} className="grid grid-cols-1 gap-8 lg:grid-cols-12 animate-reveal">
+                <div className="lg:col-span-4">
+                  <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-1">
+                    {e.period}
+                  </span>
+                  <h3 className="text-2xl font-bold tracking-tight">{e.role}</h3>
+                  <p className="text-muted-foreground font-mono text-xs uppercase tracking-wider mt-1">
                     {e.company}
                   </p>
-                  <p className="text-muted-foreground leading-relaxed">{e.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mt-4">
+                    {e.description}
+                  </p>
                 </div>
+
+                <div className="lg:col-span-8 space-y-6">
+                  {e.subProjects?.map((sub) => (
+                    <div
+                      key={sub.name}
+                      className="border border-border/80 bg-neutral-900/40 p-6 rounded-sm space-y-4 hover:border-primary/40 transition-colors"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/50 pb-3">
+                        <div>
+                          <span className="text-lg font-bold text-foreground mr-3">{sub.name}</span>
+                          <span className="text-xs font-mono text-primary/80 uppercase tracking-wider">
+                            — {sub.category}
+                          </span>
+                        </div>
+                      </div>
+
+                      <ul className="space-y-2 text-xs text-muted-foreground leading-relaxed">
+                        {sub.highlights.map((h, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="text-primary mt-0.5 select-none">▸</span>
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="flex flex-wrap gap-1.5 pt-2">
+                        {sub.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="font-mono text-[9px] border border-border px-2 py-0.5 text-muted-foreground bg-background/50"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="skills" className="mb-32">
+          <div className="mb-12 flex items-end justify-between border-b border-border pb-4">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              Technical Skills & Competencies
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skillCategories.map((cat) => (
+              <div
+                key={cat.category}
+                className="border border-border p-6 rounded-sm bg-neutral-900/20 hover:border-primary/40 transition-all duration-300 group"
+              >
+                <h3 className="font-mono text-xs font-bold text-primary uppercase tracking-widest mb-4 group-hover:text-primary/90">
+                  // {cat.category}
+                </h3>
+                <ul className="space-y-2">
+                  {cat.items.map((item) => (
+                    <li key={item} className="text-xs font-mono text-muted-foreground flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="certifications" className="mb-32">
+          <div className="mb-12 flex items-end justify-between border-b border-border pb-4">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              Certifications & Continuing Education
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {certificates.map((cert) => (
+              <div
+                key={cert.id}
+                className="border border-border p-6 rounded-sm bg-neutral-900/30 hover:border-primary/40 transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="font-mono text-[10px] text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded-sm uppercase tracking-wider">
+                      {cert.issuer}
+                    </span>
+                    <span className="font-mono text-[10px] text-muted-foreground">{cert.issueDate}</span>
+                  </div>
+                  <h3 className="text-xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
+                    {cert.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-4 font-mono">
+                    Instructor: {cert.instructor}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {cert.skills.map((s) => (
+                      <span key={s} className="font-mono text-[9px] border border-border px-2 py-0.5 text-muted-foreground">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <a
+                  href={cert.credentialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-primary hover:text-primary/80 transition-colors font-bold group/link"
+                >
+                  <span>Verify Credential</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-3 h-3 transition-transform group-hover/link:translate-x-1"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </a>
               </div>
             ))}
           </div>
