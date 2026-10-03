@@ -128,13 +128,13 @@ export default function PortfolioPage() {
         <section className="mb-32 animate-reveal">
           <div className="flex flex-col gap-4">
             <span className="font-mono text-xs text-primary uppercase tracking-[0.3em]">
-              Fullstack Engineer
+               Full-Stack Software Engineer
             </span>
             <h1 className="text-balance text-6xl font-extrabold tracking-tighter md:text-8xl lg:max-w-[12ch]">
-              Building robust <span className="text-muted-foreground">digital systems</span> for the modern web.
+              Building <span className="text-muted-foreground">software</span> that scales.
             </h1>
             <p className="mt-8 max-w-xl text-lg text-muted-foreground leading-relaxed">
-              I design and ship high-performance distributed architectures and precision-engineered user interfaces across web and mobile.
+              I'm a full-stack software engineer with experience building enterprise web, backend, and mobile applications. I specialize in Go, PHP, React, and React Native, developing scalable APIs, distributed systems, cloud-native solutions, and intuitive user interfaces. From designing system architecture to deploying production applications, I enjoy solving complex engineering challenges and building software that businesses and users can rely on.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
